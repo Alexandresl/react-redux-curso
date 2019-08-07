@@ -30,10 +30,6 @@ npm run production (pm2)
 -------------------
 mongod
 
-#build frontend
--------------------
-npm run dev
-
 #algumas dependências react
 -------------------
 npm i --save-dev 
