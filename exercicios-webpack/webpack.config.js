@@ -11,5 +11,15 @@ module.exports = {
     devServer: {
         port: 8080, // Porta do Webpack-dev-server
         contentBase: './public' // Onde está os arquivos que ele irá carregar
+    },
+    module: {
+        loaders: [{
+            test: /.js?$/,
+            loader: 'babel-loader',
+            exclude: /node_modules/,
+            query: {
+                presets: ['es2015'] 
+            }
+        }]
     }
 }
