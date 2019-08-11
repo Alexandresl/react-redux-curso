@@ -1,5 +1,6 @@
 // Carrega o webpack
 const webpack = require('webpack')
+const ExtractTextPlugin = require('Extract-text-webpack-plugin')
 
 // Coloca em evidência o modulo do node
 module.exports = {
@@ -12,6 +13,9 @@ module.exports = {
         port: 8080, // Porta do Webpack-dev-server
         contentBase: './public' // Onde está os arquivos que ele irá carregar
     },
+    plugins: [
+        new ExtractTextPlugin('app.css')
+    ],
     module: {
         loaders: [{
             test: /.js?$/,
@@ -21,6 +25,9 @@ module.exports = {
                 presets: ['es2015', 'react'],
                 plugins: ['transform-object-rest-spread'] 
             }
+        }, {
+            test: /\.css$/,
+            loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
         }]
     }
 }
